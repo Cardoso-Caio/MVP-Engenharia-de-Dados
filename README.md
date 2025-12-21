@@ -33,12 +33,11 @@ O objetivo deste MVP é **construir um pipeline de dados confiável e organizado
 As análises realizadas neste projeto buscam responder às seguintes perguntas:
 
 1. Qual é a distribuição de casos benignos e malignos no conjunto de dados?
-2. Existem diferenças relevantes nas características celulares entre tumores benignos e malignos?
-3. O conjunto de dados apresenta problemas de qualidade, como valores nulos ou registros duplicados?
-4. Os valores das variáveis numéricas estão dentro de domínios esperados (sem valores incoerentes)?
-5. O dataset apresenta consistência suficiente para suportar análises confiáveis?
-
-> **Observação:** Nem todas as perguntas precisam ser respondidas com o mesmo nível de profundidade. As que não forem plenamente respondidas são discutidas na autoavaliação.
+2. O conjunto de dados apresenta problemas de qualidade, como valores nulos ou registros duplicados?
+3. Os valores das variáveis numéricas estão dentro de domínios esperados (sem valores incoerentes)?
+4. O dataset apresenta consistência suficiente para suportar análises confiáveis?
+5. Existem diferenças relevantes nas características celulares entre tumores benignos e malignos?
+6. Quais características celulares possuem maior diferenciação entre tumores benignos e malignos?
 
 ---
 
@@ -172,19 +171,55 @@ Todos os notebooks foram versionados diretamente a partir do Databricks via inte
 
 ## 📝 Autoavaliação (Resumo)
 
-O MVP atendeu aos objetivos propostos, permitindo a construção de um pipeline completo em nuvem, com organização em camadas, qualidade de dados validada e análises consistentes.
+O desenvolvimento deste MVP permitiu a aplicação prática e integrada dos conceitos abordados na
+disciplina de Engenharia de Dados, desde a definição do problema até a análise final dos dados,
+utilizando uma plataforma de dados em nuvem.
 
-As principais dificuldades estiveram relacionadas ao entendimento inicial da plataforma Databricks e das restrições do Delta Lake, superadas ao longo do desenvolvimento.
+Os objetivos inicialmente propostos foram atingidos, com a construção de um pipeline completo,
+organizado em camadas seguindo o modelo medalhão (Bronze, Silver e Gold), garantindo rastreabilidade,
+qualidade e confiabilidade dos dados ao longo de todo o processo. A utilização do Databricks como
+plataforma central possibilitou explorar tanto o processamento em SQL quanto a persistência em
+Delta Lake, reforçando boas práticas de engenharia de dados.
+
+As principais dificuldades encontradas estiveram relacionadas ao entendimento inicial da plataforma
+Databricks, à adaptação às restrições do Delta Lake (como padronização de nomes de colunas) e à
+estruturação das análises de forma exploratória, sem conhecimento prévio aprofundado do conjunto
+de dados. Essas dificuldades foram superadas por meio de ajustes iterativos no pipeline, validações
+de qualidade e refinamento contínuo das análises.
 
 Como trabalhos futuros, o pipeline poderia ser expandido com:
-- ingestão de dados externos via arquivos ou APIs  
-- automação de cargas recorrentes  
-- materialização de métricas analíticas na camada Gold  
-- integração com ferramentas de visualização  
+- ingestão de dados externos via arquivos ou APIs;
+- automação de cargas recorrentes utilizando pipelines agendadas;
+- materialização de métricas analíticas na camada Gold;
+- integração com ferramentas de visualização para exploração interativa dos resultados;
+- aplicação de modelos preditivos utilizando as variáveis identificadas como mais discriminantes.
+
+De forma geral, o MVP contribuiu significativamente para consolidar o entendimento prático dos
+conceitos de Engenharia de Dados em nuvem e para o desenvolvimento de uma visão mais crítica e
+estruturada sobre qualidade e análise de dados.
 
 ---
 
 ## ✅ Conclusão
 
-Este projeto demonstrou a aplicação prática de conceitos de **Engenharia de Dados em nuvem**, utilizando Databricks e o modelo medalhão para garantir organização, qualidade e confiabilidade dos dados, atendendo plenamente aos requisitos propostos para o MVP.
+Este projeto demonstrou a aplicação prática dos conceitos de **Engenharia de Dados em nuvem**,
+utilizando a plataforma **Databricks** e o modelo medalhão como base para a construção de um
+pipeline de dados organizado, rastreável e confiável.
 
+Ao longo do desenvolvimento, foram implementadas todas as etapas essenciais do pipeline, incluindo
+coleta, armazenamento, tratamento, validação de qualidade, modelagem e análise exploratória dos dados.
+A separação em camadas (Bronze, Silver e Gold) permitiu garantir a evolução controlada dos dados,
+desde sua ingestão bruta até sua disponibilização para consumo analítico.
+
+As análises realizadas sobre a camada Gold evidenciaram que o conjunto de dados apresenta alta
+qualidade e consistência, sem valores nulos, duplicidades ou incoerências nos domínios numéricos.
+A abordagem exploratória adotada, considerando todas as 30 variáveis de características celulares,
+permitiu identificar de forma objetiva as diferenças relevantes entre tumores benignos e malignos,
+destacando especialmente variáveis relacionadas à concavidade, tamanho extremo e variabilidade
+estrutural.
+
+Dessa forma, o MVP atingiu plenamente seus objetivos, entregando não apenas um pipeline funcional,
+mas também uma análise fundamentada em dados, com critérios claros para interpretação e priorização
+de variáveis. O trabalho consolida a importância de boas práticas de engenharia de dados como base
+para análises confiáveis e decisões orientadas por dados, atendendo integralmente aos requisitos
+propostos para a sprint.
